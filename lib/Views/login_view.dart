@@ -1,3 +1,4 @@
+import 'package:chat_app/Widgets/custom_botton.dart';
 import 'package:chat_app/Widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
@@ -39,16 +40,26 @@ class LoginView extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 15,
+            height: 20,
           ),
           const CustomTextFormField(
             icon: Icons.person,
             text: "Email",
           ),
           const SizedBox(
-            height: 10,
+            height: 15,
           ),
-          
+          const CustomTextFormField(
+            text: "Password",
+            icon: Icons.password,
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomBotton(
+            onTap: () {},
+            text: "login",
+          ),
         ],
       ),
     );

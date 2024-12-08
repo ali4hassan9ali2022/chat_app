@@ -60,6 +60,31 @@ class LoginView extends StatelessWidget {
             onTap: () {},
             text: "login",
           ),
+          const SizedBox(
+            height: 50,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'dont\'t have an account?',
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              GestureDetector(
+                onTap: () {
+                  // Navigator.pushNamed(context, RegisterPage.id);
+                },
+                child: const Text(
+                  '  Register',
+                  style: TextStyle(
+                    color: Color(0xffC7EDE6),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

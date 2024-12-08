@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthCubit extends Cubit {
-  AuthCubit(super.initialState);
+  AuthCubit() : super(AuthinitialState());
   authLogin({required String email, required String password}) async {
     emit(LoginLoadingState());
     try {

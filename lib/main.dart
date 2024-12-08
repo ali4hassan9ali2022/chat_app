@@ -1,3 +1,4 @@
+import 'package:chat_app/Views/login_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,6 +13,10 @@ class ChatApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
+      routes: {
+        LoginView.id: (context)=> const LoginView(),
+      },
+      initialRoute: LoginView.id,
     );
   }
 }

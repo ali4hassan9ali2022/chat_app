@@ -23,9 +23,9 @@ class MyChat extends StatelessWidget {
           ),
           color: Colors.blueAccent,
         ),
-        child: Text(
+        child: const Text(
           "Love me",
-          style: const TextStyle(
+          style: TextStyle(
             color: Colors.white,
           ),
         ),

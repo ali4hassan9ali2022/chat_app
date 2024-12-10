@@ -1,3 +1,4 @@
+import 'package:chat_app/Widgets/my_chat.dart';
 import 'package:flutter/material.dart';
 
 class ChatView extends StatelessWidget {
@@ -22,7 +23,37 @@ class ChatView extends StatelessWidget {
           ],
         ),
       ),
-      
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, i) {
+                return const MyChat();
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(16),
+            child: TextField(
+              decoration: InputDecoration(
+                  hintText: "Message",
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.send),
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: const BorderSide(color: Colors.white),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
+                    borderSide: const BorderSide(color: Colors.white),
+                  )),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

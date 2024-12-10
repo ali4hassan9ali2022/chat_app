@@ -4,6 +4,7 @@ import 'package:chat_app/Widgets/custom_botton.dart';
 import 'package:chat_app/Widgets/custom_text_form_field.dart';
 import 'package:chat_app/cubit/auth_cubit/auth_cubit.dart';
 import 'package:chat_app/cubit/auth_cubit/auth_state.dart';
+import 'package:chat_app/cubit/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/helper/show_snack_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,6 +26,7 @@ class LoginView extends StatelessWidget {
           if (state is LoginLoadingState) {
             isLoading = true;
           } else if (state is LoginSuccessState) {
+            BlocProvider.of<ChatCubit>(context).getMessage();
             Navigator.pushNamed(context, ChatView.id, arguments: email);
             isLoading = false;
           } else if (state is LoginFailureState) {

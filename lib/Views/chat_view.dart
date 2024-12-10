@@ -1,5 +1,6 @@
 import 'package:chat_app/Widgets/my_chat.dart';
 import 'package:chat_app/cubit/chat_cubit/chat_cubit.dart';
+import 'package:chat_app/cubit/chat_cubit/chat_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,11 +38,18 @@ class _ChatViewState extends State<ChatView> {
       body: Column(
         children: [
           Expanded(
-            child: ListView.builder(
-              controller: _controller,
-              itemCount: 10,
-              itemBuilder: (context, i) {
-                return const MyChat();
+            child: BlocBuilder<ChatCubit, ChatState>(
+              builder: (context, state) {
+                var message = BlocProvider.of<ChatCubit>(context).messageList;
+                return ListView.builder(
+                  controller: _controller,
+                  itemCount: message.length,
+                  itemBuilder: (context, i) {
+                    return MyChat(
+                      message: message[i],
+                    );
+                  },
+                );
               },
             ),
           ),

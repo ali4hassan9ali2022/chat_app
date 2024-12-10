@@ -1,4 +1,5 @@
 import 'package:chat_app/Widgets/my_chat.dart';
+import 'package:chat_app/Widgets/my_friend_chat.dart';
 import 'package:chat_app/cubit/chat_cubit/chat_cubit.dart';
 import 'package:chat_app/cubit/chat_cubit/chat_state.dart';
 import 'package:flutter/material.dart';
@@ -44,10 +45,13 @@ class _ChatViewState extends State<ChatView> {
                 return ListView.builder(
                   controller: _controller,
                   itemCount: message.length,
+                  reverse: true,
                   itemBuilder: (context, i) {
-                    return MyChat(
-                      message: message[i],
-                    );
+                    return message[i].id == email
+                        ? MyChat(
+                            message: message[i],
+                          )
+                        : MyFriendChat(message: message[i]);
                   },
                 );
               },

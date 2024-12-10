@@ -15,6 +15,7 @@ class RegisterView extends StatelessWidget {
   String? password;
   GlobalKey<FormState> formKey = GlobalKey();
   bool isLoading = false;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled; 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,6 +35,7 @@ class RegisterView extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Form(
+              autovalidateMode: autovalidateMode,
               key: formKey,
               child: ListView(
                 children: [
@@ -95,7 +97,9 @@ class RegisterView extends StatelessWidget {
                         formKey.currentState!.save();
                         BlocProvider.of<AuthCubit>(context)
                             .authRegister(email: email!, password: password!);
-                      } else {}
+                      } else {
+                        autovalidateMode = AutovalidateMode.always;
+                      }
                     },
                     text: "register",
                   ),

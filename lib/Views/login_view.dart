@@ -16,6 +16,7 @@ class LoginView extends StatelessWidget {
   String? email;
   String? password;
   bool isLoading = false;
+  AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +37,7 @@ class LoginView extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Form(
               key: formKey,
+              autovalidateMode: autovalidateMode,
               child: ListView(
                 children: [
                   const SizedBox(
@@ -97,6 +99,7 @@ class LoginView extends StatelessWidget {
                         BlocProvider.of<AuthCubit>(context)
                             .authLogin(email: email!, password: password!);
                       } else {
+                        autovalidateMode = AutovalidateMode.always;
                       }
                     },
                     text: "login",

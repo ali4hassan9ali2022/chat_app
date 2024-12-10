@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class ChatView extends StatelessWidget {
   const ChatView({super.key});
   static String id = "ChatView";
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,8 +37,11 @@ class ChatView extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16),
             child: TextField(
+              onSubmitted: (value) {
+                
+              },
               decoration: InputDecoration(
-                  hintText: "Message",
+                  hintText: "send message",
                   suffixIcon: IconButton(
                     onPressed: () {},
                     icon: const Icon(Icons.send),
